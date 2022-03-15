@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include"mat.hpp"
+#include <math.h> 
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -25,7 +27,49 @@ namespace ariel {
         if(sym_two == ' ' || sym_two == '\t' || sym_two == '\n' || sym_two == '\r'){
             throw std::invalid_argument("Illegal symbols");
         }
+
+        // check for unprintable letters
+        const int minChar = 33;
+        const int maxChar = 126;
+        if(sym_one < minChar || sym_one >maxChar || sym_two < minChar || sym_two >maxChar){
+            throw std::invalid_argument("Illegal symbols arcoding to the given tests");
+        }
+
         // Build the rag
-        return "test";
+
+        // initalizes a new mat in size of the wanted rag where everything is 0
+        vector<vector<string>> mat( length , vector<string> (breadth, "-"));
+
+        // we calulate the amount of circle there are in the rag
+        int amount = (int)(min(length,breadth)/2) + 1;
+
+        // build the rag circle by circle
+        for (size_t start = 0; start < amount; start++)
+        {
+            for (size_t x = start; x < length-start; x++){
+
+                for (size_t y = start; y < breadth-start; y++){
+                    //check which is the current circle
+                    if(start%2==0){
+                        mat[x][y] = sym_one;
+                    }
+                    else{
+                        mat[x][y] = sym_two;
+                    } 
+                }
+
+            }
+        }
+        
+        // convert the mat into complete string
+        string result;
+        for (size_t y = 0; y < breadth; y++){
+            for (size_t x = 0; x < length; x++){
+                result.append(mat[x][y]);
+            }
+            result.push_back('\n');
+        }        
+
+        return result;
     };
 };

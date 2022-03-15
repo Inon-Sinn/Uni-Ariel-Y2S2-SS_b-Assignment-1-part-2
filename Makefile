@@ -9,11 +9,11 @@ SOURCES=mat.cpp
 run: test
 	./$^
 
-test: TestRunner.o StudentTest4.o $(OBJECTS) $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -o test
-
-# test: TestRunner.o StudentTest1.o StudentTest2.o StudentTest3.o $(OBJECTS) $(OBJECTS)
+# test: TestRunner.o StudentTest4.o $(OBJECTS) $(OBJECTS)
 # 	$(CXX) $(CXXFLAGS) $^ -o test
+
+test: TestRunner.o StudentTest1.o StudentTest2.o StudentTest3.o $(OBJECTS) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o test
 
 main: Main.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o main
