@@ -5,8 +5,6 @@
 using namespace std;
 
 int main() {
-
-    // dont forget to change files back
     
     // printing my name
     cout << '\n' +  ariel::mat(3, 3, '|', 'I') << endl;

@@ -8,7 +8,8 @@ using namespace std;
 
 namespace ariel { 
     std::string mat(int length, int breadth, char sym_one, char sym_two){
-        // check Input
+
+        // --- Input check ---
         
         // check for odd and zero input
         if( length%2 == 0 || breadth%2 == 0){
@@ -20,14 +21,6 @@ namespace ariel {
             throw std::invalid_argument("Length and breath can't be a negative value");
         }
 
-        // // check if the given symbols are legal
-        // if(sym_one == ' ' || sym_one == '\t' || sym_one == '\n' || sym_one == '\r'){
-        //     throw std::invalid_argument("Illegal symbols");
-        // }
-        // if(sym_two == ' ' || sym_two == '\t' || sym_two == '\n' || sym_two == '\r'){
-        //     throw std::invalid_argument("Illegal symbols");
-        // }
-
         // check for unprintable letters
         const int minChar = 33;
         const int maxChar = 126;
@@ -35,7 +28,7 @@ namespace ariel {
             throw std::invalid_argument("Unprintable letter, the symbols have to be chars between 33 and 126");
         }
 
-        // Build the rag
+        // --- Building the rag ---
 
         // initalizes a new mat in size of the wanted rag where everything is 0
         vector<vector<string>> mat( length , vector<string> (breadth, "-"));
