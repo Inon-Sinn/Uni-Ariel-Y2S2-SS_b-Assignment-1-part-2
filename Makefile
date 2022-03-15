@@ -9,9 +9,6 @@ SOURCES=mat.cpp
 run: test
 	./$^
 
-# test: TestRunner.o StudentTest4.o $(OBJECTS) $(OBJECTS)
-# 	$(CXX) $(CXXFLAGS) $^ -o test
-
 test: TestRunner.o StudentTest1.o StudentTest2.o StudentTest3.o $(OBJECTS) $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
 
@@ -32,12 +29,6 @@ StudentTest2.cpp:
 # Gilad Livshitz
 StudentTest3.cpp: 
 	curl https://raw.githubusercontent.com/giladliv/Maarachot-B-Task-01/main/Test.cpp > $@
-
-# MyTest
-StudentTest4.cpp:
-	curl https://raw.githubusercontent.com/Inon-Sinn/-Uni-Ariel-Y2S1-SS_b-Assignment-1-/master/Test.cpp > $@
-
-
 
 tidy:
 	clang-tidy $(SOURCES) -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-* --warnings-as-errors=* --
