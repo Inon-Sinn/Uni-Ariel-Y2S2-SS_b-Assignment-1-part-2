@@ -12,27 +12,27 @@ namespace ariel {
         
         // check for odd and zero input
         if( length%2 == 0 || breadth%2 == 0){
-            throw std::invalid_argument("Mat size is always odd");
+            throw std::invalid_argument("Length and breath can't be odd");
         }
 
         // check for negative input
         if( length < 0 || breadth < 0){
-            throw std::invalid_argument(" arguments must be positive");
+            throw std::invalid_argument("Length and breath can't be a negative value");
         }
 
-        // check if the given symbols are legal
-        if(sym_one == ' ' || sym_one == '\t' || sym_one == '\n' || sym_one == '\r'){
-            throw std::invalid_argument("Illegal symbols");
-        }
-        if(sym_two == ' ' || sym_two == '\t' || sym_two == '\n' || sym_two == '\r'){
-            throw std::invalid_argument("Illegal symbols");
-        }
+        // // check if the given symbols are legal
+        // if(sym_one == ' ' || sym_one == '\t' || sym_one == '\n' || sym_one == '\r'){
+        //     throw std::invalid_argument("Illegal symbols");
+        // }
+        // if(sym_two == ' ' || sym_two == '\t' || sym_two == '\n' || sym_two == '\r'){
+        //     throw std::invalid_argument("Illegal symbols");
+        // }
 
         // check for unprintable letters
         const int minChar = 33;
         const int maxChar = 126;
         if(sym_one < minChar || sym_one >maxChar || sym_two < minChar || sym_two >maxChar){
-            throw std::invalid_argument("Illegal symbols arcoding to the given tests");
+            throw std::invalid_argument("Unprintable letter, the symbols have to be chars between 33 and 126");
         }
 
         // Build the rag
